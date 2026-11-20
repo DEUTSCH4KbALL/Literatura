@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Єгошуа: хто прийде після пророка</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#050813;--sand:#f0b866;--fire:#ff7b3a;--ink:#eef2ff;--mute:#b3bddb;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 1.05rem/1.6 Onest,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Unbounded,Impact,sans-serif;line-height:1.1;margin:0}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 0;transform:scaleX(0);background:linear-gradient(90deg,#92d6ff,var(--sand),var(--fire));z-index:60}
+svg.defs{position:absolute;width:0;height:0}
+.glass{position:relative;border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.04));-webkit-backdrop-filter:blur(16px) saturate(1.7);backdrop-filter:blur(16px) saturate(1.7);box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.55),inset -1px -1px 0 rgba(255,255,255,.12),inset 0 0 28px rgba(255,255,255,.07),0 24px 70px rgba(0,0,0,.5);overflow:hidden}
+.glass::after{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.26),transparent 60%);mix-blend-mode:soft-light;pointer-events:none}
+/* hero */
+#hero{position:relative;height:100vh;overflow:hidden;perspective:900px}
+.layer{position:absolute;inset:-6% -4%;width:108%;height:112%;will-change:transform}
+.layer svg{width:100%;height:100%;display:block}
+.rise{animation:rise 2.4s cubic-bezier(.2,.9,.2,1) both}
+@keyframes rise{from{transform:translateY(22%) scale(1.25);opacity:0}to{opacity:1}}
+#hero .txt{position:absolute;inset:0;z-index:3;display:grid;place-content:center;text-align:center;padding:0 5vw;pointer-events:none}
+h1{font-weight:800;font-size:clamp(2.3rem,8vw,6.8rem);letter-spacing:-.02em;text-shadow:0 10px 60px rgba(0,0,0,.6)}
+h1 .w{display:inline-block;white-space:nowrap;margin:0 .12em}
+.ch{display:inline-block;background:linear-gradient(180deg,#fff 30%,var(--sand));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:26px auto 0;max-width:34ch;color:#e6ebff;opacity:0;transition:opacity 1.4s 2.2s;text-shadow:0 2px 20px #000}
+.go .sub{opacity:1}
+/* journey */
+#journey{height:560vh}
+.stick{position:sticky;top:0;height:100vh;perspective:1100px;overflow:hidden;display:grid;place-items:center}
+.world{position:relative;width:min(900px,92vw);aspect-ratio:8/5;transform-style:preserve-3d}
+.sc{position:absolute;inset:0;border-radius:26px;overflow:hidden;will-change:transform,opacity;box-shadow:0 30px 90px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.sc svg{width:100%;height:100%;display:block}
+.cap{position:absolute;left:4%;bottom:6%;max-width:min(430px,86%);padding:22px 26px}
+.cap h3{font-size:clamp(1.15rem,2.4vw,1.7rem);margin-bottom:10px}
+.cap p{margin:0;font-size:.98rem}
+.flick{animation:fl 1.4s ease-in-out infinite alternate}
+@keyframes fl{from{opacity:.65}to{opacity:1}}
+/* duel */
+section.pad{padding:16vh 6vw}
+.wrap{max-width:1050px;margin:0 auto}
+h2{font-size:clamp(1.8rem,4.6vw,3.4rem);max-width:17ch;margin-bottom:56px}
+h2 .w{display:inline-block;margin-right:.25em}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;perspective:1300px}
+.flip{height:480px;cursor:pointer;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.3,.5,1);border:0;background:none;padding:0;color:inherit;font:inherit;text-align:left}
+.flip.on{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:0;display:flex;flex-direction:column;justify-content:flex-end}
+.face svg{position:absolute;inset:0;width:100%;height:100%}
+.face div{position:relative;padding:26px}
+.face h3{font-size:1.7rem;margin-bottom:6px}
+.face p{margin:0}.back{transform:rotateY(180deg);justify-content:center}
+.hintt{font-size:.85rem;color:var(--mute);margin-top:10px}
+/* handoff */
+#hand{height:380vh}
+.hst{position:sticky;top:0;height:100vh;display:grid;place-items:center;align-content:center;gap:30px;padding:0 5vw;text-align:center}
+.hst svg{width:min(1000px,94vw);height:auto;overflow:visible}
+.say{position:relative;height:9rem;width:min(760px,92vw)}
+.say h2{position:absolute;inset:0;margin:0 auto;max-width:none;opacity:0;font-size:clamp(1.4rem,3.6vw,2.6rem);transition:opacity .6s,transform .8s;transform:translateY(30px) scale(.96)}
+.say h2.on{opacity:1;transform:none}
+@media(max-width:760px){.duo{grid-template-columns:1fr}.flip{height:420px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sub{opacity:1}}
+</style></head><body>
+<div id="bar"></div><canvas id="fx" aria-hidden="true"></canvas>
+<svg class="defs" aria-hidden="true"><defs>
+<symbol id="mo" viewBox="0 0 60 120"><circle cx="28" cy="13" r="9"/><path d="M20 18Q28 40 36 18Z"/><path d="M16 32Q28 22 40 32L47 118H9Z"/><rect x="49" y="4" width="3" height="114"/><circle cx="50.5" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+<symbol id="jo" viewBox="0 0 70 120"><circle cx="30" cy="13" r="9"/><path d="M19 30h22l5 88H14z"/><path d="M44 50L66 14l3 2-20 38z"/><rect x="4" y="0" width="3" height="118"/><path d="M7 4h22l-6 9 6 9H7z" fill="#ff7b3a"/></symbol>
+<symbol id="pp" viewBox="0 0 12 24"><circle cx="6" cy="4" r="3.2"/><path d="M2 9h8l2 15H0z"/></symbol>
+<linearGradient id="pil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7b3a" stop-opacity="0"/><stop offset=".6" stop-color="#ffb066" stop-opacity=".9"/><stop offset="1" stop-color="#fff2cc"/></linearGradient>
+<filter id="bl"><feGaussianBlur stdDeviation="6"/></filter></defs></svg>
+
+<header id="hero">
+ <div class="layer rise" id="L1"></div><div class="layer rise" id="L2" style="animation-delay:.25s"></div>
+ <div class="txt"><h1 id="t">Хто прийде після пророка?</h1><p class="sub">Єгошуа, наступник Мойсея у Франковій поемі.</p></div>
+</header>
+
+<section id="journey"><div class="stick"><div class="world" id="world"></div></div></section>
+
+<section class="pad"><div class="wrap">
+ <h2 data-asm>Двоє, яких не поставиш в один ряд</h2>
+ <div class="duo">
+  <button class="flip" aria-label="Мойсей, перевернути картку"><div class="face glass" id="fm"></div><div class="face glass back"><div><h3>Що в нього болить</h3><p>Народ, який не хоче йти. Мойсей знає, що рабство сидить не в Єгипті, а всередині людей, і за сорок років цього не виправиш одним наказом.</p></div></div></button>
+  <button class="flip" aria-label="Єгошуа, перевернути картку"><div class="face glass" id="fj"></div><div class="face glass back"><div><h3>Що в нього болить</h3><p>Розвалений стрій і втрачений день. Він думає переходами, засідками й тим, хто стоятиме на варті вночі. Для війська це якраз те, що треба.</p></div></div></button>
+ </div><p class="hintt">Торкніться картки, вона обертається.</p>
+</div></section>
+
+<section id="hand"><div class="hst">
+ <svg viewBox="0 0 1000 300" id="hs" aria-hidden="true"></svg>
+ <div class="say" id="say"><h2>Спершу світло в руках пророка.</h2><h2>Потім воно лягає на плечі воїна.</h2><h2>Прийде ціле покоління, а Єгошуа лише відчинить йому двері.</h2></div>
+</div></section>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],cl=(v,a,b)=>Math.max(a,Math.min(b,v)),R=Math.random;
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const crowd=(x,y,n,c,sc=1)=>Array.from({length:n},(_,i)=>`<use href="#pp" x="${x+i*14*sc+R()*8}" y="${y+R()*14-7}" width="${9*sc}" height="${18*sc}" fill="${c}"/>`).join('');
+const stars=n=>Array.from({length:n},()=>`<circle cx="${R()*800}" cy="${R()*230}" r="${R()*1.4+.3}" fill="#fff" opacity="${R()*.8+.2}"/>`).join('');
+const S=(id,a,b,top,d1,d2,far,mid,fg)=>`<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="800" height="500" fill="url(#s${id})"/>${top}${far}<path d="M0 370Q150 320 300 360T620 345T800 340V500H0z" fill="${d1}"/>${mid}<path d="M0 440Q200 390 400 430T800 420V500H0z" fill="${d2}"/>${fg}</svg>`;
+const mount='<path d="M230 372L400 150L580 372z" fill="#0b1230"/>';
+const pillar=x=>`<g class="flick"><rect x="${x-14}" y="30" width="28" height="330" fill="url(#pil)" filter="url(#bl)"/><rect x="${x-5}" y="60" width="10" height="300" fill="url(#pil)"/></g>`;
+const sun=(x,y,r,c)=>`<circle cx="${x}" cy="${y}" r="${r*2.2}" fill="${c}" opacity=".18"/><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`;
+const SC=[
+ ['Він не дійде','Мойсей сорок років веде людей через пустелю, а Ханаан бачить лише здалеку, з гори. Хтось інший мусить зайти туди першим.',
+  S(1,'#070b22','#2b2a58',stars(70)+sun(640,90,26,'#fff4d6'),'#10163a','#0a0f28',mount,`<use href="#mo" x="385" y="92" width="30" height="60" color="#05070f" fill="#05070f"/>`,crowd(60,455,14,'#03050c'))],
+ ['Єгошуа бере меч','Він із тих, хто виконує, б’є, тримає стрій. На порозі чужої землі, де ніхто нікого просто так не пустить, без такої людини не обійтися.',
+  S(2,'#3a2350','#ff9a5a',sun(400,330,38,'#ffe7a8'),'#5b2a3a','#2a1426','',`<use href="#jo" x="470" y="262" width="49" height="84" color="#14070f" fill="#14070f"/>`,crowd(40,440,18,'#0d0510',1.1))],
+ ['Але людям мало сильної руки','У пустелі вони досі згадують єгипетські горнята з м’ясом. Хоч кого постав над ними, вести доведеться тих, хто ще не навчився хотіти волі.',
+  S(3,'#0a0f2a','#4a2a40',stars(50),'#1b1530','#0d0a1c',pillar(560),'',crowd(30,430,30,'#04040a',1.2)+crowd(120,395,22,'#07060e',.9))],
+ ['Мрія збувається без нього','Єгошуа заведе народ у Ханаан, а втримають цю землю ті, хто на неї ступив. Для цього одного вождя замало.',
+  S(4,'#7fb8e8','#ffe9b8',sun(560,150,44,'#fff6d8'),'#3f7a4a','#1f5238','<path d="M0 330Q200 250 400 320T800 300V400H0z" fill="#5b9a62" opacity=".7"/>','<path d="M0 395Q200 372 400 392T800 385" stroke="#7fd0ff" stroke-width="9" fill="none" opacity=".7"/>',crowd(250,425,22,'#0a2418',1.1))]
+];
+const world=$('#world');
+SC.forEach(s=>{const e=document.createElement('article');e.className='sc';e.innerHTML=s[2]+`<div class="cap glass"><h3>${s[0]}</h3><p>${s[1]}</p></div>`;world.appendChild(e)});
+$('#L1').innerHTML=S(0,'#04060f','#2a1d4a',stars(90)+sun(650,80,22,'#fff4d6'),'#0e1433','#0a0f28',mount,`<use href="#mo" x="385" y="92" width="30" height="60" color="#05070f" fill="#05070f"/>`+pillar(160)+crowd(60,350,16,'#05070f',.8),'');
+$('#L2').innerHTML=`<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMax slice"><path d="M0 420Q150 380 330 420T800 400V500H0z" fill="#070a1c"/><path d="M0 470Q220 430 430 468T800 455V500H0z" fill="#03050d"/></svg>`;
+const fig=(id,bg,sym,col)=>`<svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="r${id}" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="${bg}"/><stop offset="1" stop-color="#050813"/></radialGradient></defs><rect width="400" height="480" fill="url(#r${id})"/>${stars(30).replace(/cy="[\d.]+"/g,m=>`cy="${R()*200}"`)}<use href="#${sym}" x="110" y="60" width="180" height="330" color="${col}" fill="${col}"/><path d="M0 400Q100 370 200 395T400 385V480H0z" fill="#050813"/></svg>`;
+$('#fm').innerHTML=fig('m','#2b4a8a','mo','#050813')+'<div><h3>Мойсей</h3><p>Бачить далеко, на століття вперед.</p></div>';
+$('#fj').innerHTML=fig('j','#9a4a2a','jo','#0d0408')+'<div><h3>Єгошуа</h3><p>Бачить близько, на один перехід.</p></div>';
+$$('.flip').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
+/* handoff svg */
+const hs=$('#hs');
+hs.innerHTML=`<defs><radialGradient id="orb"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#ffd58a"/><stop offset="1" stop-color="#ff7b3a" stop-opacity="0"/></radialGradient></defs><path d="M0 285Q250 255 500 280T1000 270" stroke="#2a3466" stroke-width="2" fill="none"/>
+<use id="hm" href="#mo" x="110" y="90" width="80" height="160" color="#8aa0ff" fill="#8aa0ff"/><use id="hj" href="#jo" x="450" y="90" width="90" height="160" color="#8aa0ff" fill="#8aa0ff"/>
+<g id="hc" fill="#8aa0ff">${Array.from({length:3}).map((_,r)=>crowd(690,150+r*40,10,'#8aa0ff',1.5-r*.15)).join('')}</g><circle id="o" r="70" cy="150" fill="url(#orb)"/>`;
+const say=$$('#say h2');
+let mx=0,my=0;
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+$$('.glass').forEach(g=>g.addEventListener('pointermove',e=>{const b=g.getBoundingClientRect();g.style.setProperty('--mx',e.clientX-b.left+'px');g.style.setProperty('--my',e.clientY-b.top+'px')}));
+/* title assemble */
+const h1=$('#t'),tx=h1.textContent;h1.textContent='';h1.setAttribute('aria-label',tx);const cs=[];
+tx.split(' ').forEach(w=>{const ws=document.createElement('span');ws.className='w';ws.setAttribute('aria-hidden','true');[...w].forEach(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c;const r=n=>(R()-.5)*n;s.style.cssText=`opacity:0;transform:translate3d(${r(1600)}px,${r(1000)}px,${r(1400)}px) rotateX(${r(900)}deg) rotateY(${r(900)}deg) scale(${R()*3})`;cs.push(s);ws.appendChild(s)});h1.append(ws,' ')});
+setTimeout(()=>{cs.forEach((s,i)=>{s.style.transition=`transform 1.8s cubic-bezier(.2,.9,.2,1) ${i*50}ms,opacity .8s ${i*50}ms`;s.style.transform='none';s.style.opacity=1});document.body.classList.add('go')},500);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.w').forEach((w,i)=>setTimeout(()=>{w.style.transition='transform 1.1s cubic-bezier(.2,.9,.2,1),opacity .8s';w.style.transform='none';w.style.opacity=1},i*120));io.unobserve(e.target)}}),{threshold:.5});
+$$('[data-asm]').forEach(h=>{h.innerHTML=h.textContent.split(' ').map(w=>`<span class="w" style="opacity:0;transform:translate3d(${(R()-.5)*800}px,${(R()-.5)*400}px,-400px) rotate(${(R()-.5)*140}deg)">${w}</span>`).join(' ');io.observe(h)});
+/* embers */
+const cv=$('#fx'),cx=cv.getContext('2d');let W,H;const em=Array.from({length:70},()=>({x:R(),y:R(),s:R()*2+.6,v:R()*.4+.15}));
+const rs=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};rs();addEventListener('resize',rs);
+(function loop(t){cx.clearRect(0,0,W,H);for(const e of em){e.y-=e.v/400;if(e.y<0)e.y=1;cx.globalAlpha=.5+.5*Math.sin(t/500+e.x*9);cx.fillStyle='#ffb066';cx.beginPath();cx.arc(e.x*W+Math.sin(t/900+e.y*8)*14,e.y*H,e.s,0,6.3);cx.fill()}if(!rm)requestAnimationFrame(loop)})(0);
+/* scroll */
+const J=$('#journey'),Hd=$('#hand'),sc=$$('.sc');
+function upd(){
+ const y=scrollY;$('#bar').style.transform=`scaleX(${y/(document.documentElement.scrollHeight-innerHeight||1)})`;
+ const hp=cl(y/innerHeight,0,1.2);
+ $('#L1').style.transform=`translate3d(${mx*-26}px,${my*-14+hp*80}px,0) scale(${1+hp*.35})`;
+ $('#L2').style.transform=`translate3d(${mx*-60}px,${my*-30-hp*60}px,0) scale(${1+hp*.1})`;
+ $('#hero .txt').style.transform=`translateY(${hp*-90}px) scale(${1-hp*.25})`;$('#hero .txt').style.opacity=1-hp*1.1;
+ let r=J.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight),0,1),f=p*(sc.length-1);
+ sc.forEach((c,i)=>{const d=i-f,a=Math.abs(d),sd=i%2?1:-1;
+  c.style.transform=`translate3d(${d>0?sd*a*180:sd*-a*500}px,${-a*20}px,${-d*750}px) rotateY(${d>0?-sd*a*24:sd*a*50}deg) rotateZ(${d>0?sd*a*3:0}deg)`;
+  c.style.opacity=d<0?cl(1+d*1.8,0,1):cl(1-d*.5,0,1)});
+ r=Hd.getBoundingClientRect();p=cl(-r.top/(r.height-innerHeight),0,1);
+ const o=$('#o');o.setAttribute('cx',150+Math.min(p*1.6,1)*(p<.5?0:0)+(p<.5?p*2*370:370+(p-.5)*2*370));
+ $('#hm').style.opacity=1-cl((p-.1)*3,0,.75);$('#hj').style.opacity=.35+cl(1-Math.abs(p-.5)*4,0,.65);$('#hc').style.opacity=.25+cl((p-.55)*2.2,0,.75);
+ $('#hc').style.transform=`translateY(${(1-cl((p-.5)*2,0,1))*30}px)`;
+ say.forEach((h,i)=>h.classList.toggle('on',i===(p<.3?0:p<.62?1:2)));
+}
+addEventListener('scroll',upd,{passive:true});addEventListener('pointermove',upd);upd();
+})();
+</script></body></html>
